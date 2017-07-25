@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<DAL.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/assets/js/shop.js"></script>
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                <li><a href="~/shopping/Fashion"><span class="icon-chevron-right"></span>Fashion</a></li>
+                <li><a href="~/shopping/Watch"><span class="icon-chevron-right"></span>Watches</a></li>
+                <li><a href="~/shopping/Jewelry"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>
+                <li><a href="~/shopping/Car"><span class="icon-chevron-right"></span>Cars</a></li>
+                <li><a href="~/shopping/Engagement"><span class="icon-chevron-right"></span>Engagement & Wedding</a></li>
+                <li><a href="~/shopping/MenJewelry"><span class="icon-chevron-right"></span>Men's Jewelry</a></li>
+                <li><a href="~/shopping/MenCloth"><span class="icon-chevron-right"></span>Men's Cloths </a></li>
+                <li><a href="~/shopping/WomenCloth"><span class="icon-chevron-right"></span>Women's Cloths</a></li>
+                <li><a href="~/shopping/AllJewelry"><span class="icon-chevron-right"></span>See All Jewelry & Watches</a></li>
+                <li style="border:0"> &nbsp;</li>
+                <li> <a class="totalInCart" href="cart.html"><strong>Total Amount  <span class="badge badge-warning pull-right" style="line-height:18px;">$448.42</span></strong></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="span9">
+        <div class="well np">
+            <div id="myCarousel" class="carousel slide homCar">
+                <div class="carousel-inner">
+                    @foreach (var i in Model)
+                    {
+                        <div class="item">
+                            <img style="width:100%" src="@Url.Content(@i.Image)" alt="">
+                        </div>
+                    }
+                </div>
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <ul class="thumbnails">
+
+        @foreach (var item in Model)
+        {
+            <li class="span3">
+            <div class="thumbnail">
+                <a href="product_details.html" class="overlay"></a>
+                <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                <a href="product_details.html"><img src="@Url.Content(@item.Image)" alt="" class="sizeimag"></a>
+                <div class="caption cntr">
+                    <p>@item.Name</p>
+                    <p><strong> $@item.Price</strong></p>
+                    <h4><button class="shopBtn" title="add to cart" onclick="addTochart(@item.Id)"> Add to cart </button></h4>
+                    <div class="actionList">
+                        <a class="pull-left" href="#">Add to Wish List </a>
+                        <a class="pull-left" href="#"> Add to Compare </a>
+                    </div>
+                    <br class="clr">
+                </div>
+            </div>
+        </li>
+        }
+        
+     </ul>
+

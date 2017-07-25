@@ -1,0 +1,59 @@
+﻿@model DAL.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="">
+    <ul class="breadcrumb">
+        <li><a href="~/shopping/Index">Home</a> <span class="divider">/</span></li>
+        <li class="active">Registration</li>
+    </ul>
+    <h3> Registration</h3>
+    <hr class="soft" />
+    <div class="well">
+        <form class="form-horizontal">
+            <h3>Your Personal Details</h3>
+
+            <div class="control-group">
+                <label class="control-label" for="inputFname">First name <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="FirstName" name="FirstName" placeholder="First Name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputLname">Last name <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="LastName" name="LastName" placeholder="Last Name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Email <sup>*</sup></label>
+                <div class="controls">
+                    <input type="text" id="Email" name="Email" placeholder="Email">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Password <sup>*</sup></label>
+                <div class="controls">
+                    <input type="password" id="Password" name="Password" placeholder="Password">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label">Date of Birth <sup>*</sup></label>
+                <div class="controls">
+                    <input type="date" id="DateOfBirth" name="DateOfBirth">
+
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button class="" onclick="register()">Register</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
